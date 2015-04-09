@@ -21,6 +21,7 @@ $(document).ready(function() {
       },
       "from-year": {
         required: true,
+        minlength: 4,
         maxlength: 4,
         number: true
       },
@@ -36,6 +37,7 @@ $(document).ready(function() {
       },
       "to-year": {
         required: true,
+        minlength: 4,
         maxlength: 4,
         number: true
       }

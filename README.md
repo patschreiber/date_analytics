@@ -1,13 +1,22 @@
 # date_analytics
 
+### Use
+Clone the repository and open index.html in your browser of choice.
+
+#### Works best in:
+* Chrome
+* Firefox
+* Safari
+* IE 10+
+
+
+
 What follows is a simple logic problem that we would like you to solve using whichever language you want to use.
 
 There are a few requirements
 
 1. Set of instructions on how to run the code
-
 2. Code allows user to input start date and end date
-
 3. Code displays output for user to see.
 
 The rest is up to you.
