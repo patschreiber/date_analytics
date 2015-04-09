@@ -2,22 +2,42 @@
 <html>
 <head>
   <title>Years</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="jquery.validate.min.js"></script>
   <script type="text/javascript" src="years.js"></script>
 </head>
 <body>
-  <h3>Sunday Manager</h3>
-  <p>
-    Find the count of how many Sundays appear on the first of the month in the date range provided.
-  </p>
-  <label>From:</label>
-  <input id="fromMonth" placeholder="MM">
-  <input id="fromDay" placeholder="DD">
-  <input id="fromYear" placeholder="YYYY">
+  <div class="column">
+    <h3>Sunday Manager</h3>
+    <p>
+      Find the count of how many Sundays appear on the first of the month in the date range provided.
+    </p>
+    <form id="sundaysInputForm">
+      <p>
+        <div class="form-label">
+          <label>From:</label>
+        </div>
+        <input name="from-month" id="from-month" placeholder="MM" size="2">
+        <input name="from-day" id="from-day" placeholder="DD" size="2">
+        <input name="from-year" id="from-year" placeholder="YYYY" size="4">
+      </p>
 
-  <label>To:</label>
-  <input id="toMonth" placeholder="MM">
-  <input id="toDay" placeholder="DD">
-  <input id="toYear" placeholder="YYYY">
+      <p>
+        <div class="form-label">
+          <label>To:</label>
+        </div>
+        <input name="to-month" id="to-month" placeholder="MM" size="2">
+        <input name="to-day" id="to-day" placeholder="DD" size="2">
+        <input name="to-year" id="to-year" placeholder="YYYY" size="4">
+      </p>
+      <p>
+        <button id="calculateSundaysSubmit" value="submit">Calculate</button>
+      </p>
+    </form>
+    <p id="output">
+      There have been <span id="total"></span> Sundays on the first of the month between <span id="date1"><em></em></span> and <span id="date2"><em></em></span>.
+    </p>
+  </div>
 </body>
 </html>

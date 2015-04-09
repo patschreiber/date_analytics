@@ -1,23 +1,74 @@
 (function() {
 
-  var daysInAMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
 $(document).ready(function() {
 
-  var bound1 = new Date(1900, 0, 1);  // yyy-mm-dd, month is 0 based 0 = jan
-  var bound2 = new Date(2015, 11, 8)
-
-  if ( checkLeapYear( 1901 ) ) {
-    console.log(true);
-  }
-  else {
-    console.log(false);
-  }
-  console.log(1901 % 4);
-
-  checkSundays( bound1, bound2 );
-  
+  // Validate the form
+  $('#sundaysInputForm').validate({
+    debug: true,
+    rules: {
+      "from-month": {
+        required: true,
+        maxlength: 2,
+        number: true
+      },
+      "from-day": {
+        required: true,
+        maxlength: 2,
+        number: true
+      },
+      "from-year": {
+        required: true,
+        maxlength: 4,
+        number: true
+      },
+      "to-month": {
+        required: true,
+        maxlength: 2,
+        number: true
+      },
+      "to-day": {
+        required: true,
+        maxlength: 2,
+        number: true
+      },
+      "to-year": {
+        required: true,
+        maxlength: 4,
+        number: true
+      }
+    },
+    submitHandler: function(form) {
+      var bound1 = formatDate( $('#from-month').val(), $('#from-day').val(), $('#from-year').val() );
+      var bound2 = formatDate( $('#to-month').val(), $('#to-day').val(), $('#to-year').val() );
+      
+      $('#total').text( checkSundays( bound1, bound2 ) );
+      $('#date1').text( dayNames[bound1.getDay()] + ', ' + monthNames[bound1.getMonth()] + ' ' + bound1.getDate() + ' ' + bound1.getFullYear());
+      $('#date2').text( dayNames[bound2.getDay()] + ', ' + monthNames[bound2.getMonth()] + ' ' + bound2.getDate() + ' ' + bound2.getFullYear());
+    }
+  });
 });
+
+
+
+
+/* Converts string to int, if applicable
+ * 
+ * params m, d, y
+ * returns date
+ */
+function formatDate(m, d, y) {
+  m = parseInt(m);
+  d = parseInt(d);
+  y = parseInt(y);
+
+  return new Date( y, m, d );
+}
+
+
+
 
 /* Count how many Sundays appear in a year on a certain dayform a lower month bound to an upper month bound
  * 
@@ -108,17 +159,3 @@ function checkLeapYear(year) {
 }
 
 })();
-
-
-/* If leap year and first day of the month on sunday, 
-If first of the month is sat, then 5 sundays in month for 30 day month
-
-If month has 31, then 5 sundays in month if first of month is fri
-
-If first of the month is sun, then 5 sundays in month unless feb
-  unless leap year
-    where there are 5
-    
-
-    */
-

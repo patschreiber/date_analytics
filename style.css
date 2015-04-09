@@ -1,0 +1,31 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #333333;
+  background-color: #ADD8E6;
+}
+button {
+  display: inline-block;
+  padding: 5px;
+}
+button:hover {
+  cursor: pointer;
+}
+input {
+  border: 1px solid #999999;
+  padding: 5px;
+}
+.error {
+  border-color: #990000;
+  background-color: #FF6666;
+}
+.form-label {
+  width: 100px;
+}
+.column {
+  background-color: #FFFFFF;
+  box-shadow: 0 0 15px #333333;
+  padding: 15px;
+  margin: 0 auto;
+  width: 976px;
+  height: 100%;
+}
