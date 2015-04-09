@@ -27,5 +27,11 @@ input {
   padding: 15px;
   margin: 0 auto;
   width: 976px;
-  height: 100%;
+}
+#date1,
+#date2 {
+  font-style: italic;
+}
+#output {
+  display: none;
 }

@@ -47,6 +47,7 @@ $(document).ready(function() {
       $('#total').text( checkSundays( bound1, bound2 ) );
       $('#date1').text( dayNames[bound1.getDay()] + ', ' + monthNames[bound1.getMonth()] + ' ' + bound1.getDate() + ' ' + bound1.getFullYear());
       $('#date2').text( dayNames[bound2.getDay()] + ', ' + monthNames[bound2.getMonth()] + ' ' + bound2.getDate() + ' ' + bound2.getFullYear());
+      $('#output').show();
     }
   });
 });
